@@ -84,6 +84,11 @@
       // The main difference from fetchOne() will be the URL you request from; check
       // the writeup to view the URL pattern for fetch one and fetch all
       async function fetchAll() {
+
+        // Hide the unnessary forms
+        document.getElementById("recordForm").style.display = "none";
+        document.getElementById("recordIDcontainer").style.display = "none";
+
         fetch("http://localhost:3000/posts")
         .then(response => response.json())
         .then(data => {
@@ -96,6 +101,11 @@
       // The main difference from fetchAll() will be the URL you request from; check
       // the writeup to view the URL pattern for fetch one and fetch all
       function fetchOne() {
+
+        // Hide the unnessary forms
+        document.getElementById("recordForm").style.display = "none";
+        document.getElementById("recordIDcontainer").style.display = "none";
+
         let id = prompt("Enter record ID");
         fetch("http://localhost:3000/posts/" + id)
         .then(response => response.json())
@@ -175,12 +185,17 @@
       // request; check the writeup to view the URL pattern for get one and delete. THERE IS NO 
       // delete all, only delete one.
       function deleteRecord() {
+
+        // Hide the unnessary forms
+        document.getElementById("recordForm").style.display = "none";
+        document.getElementById("recordIDcontainer").style.display = "none";
+
         let headers = {
             method: "DELETE",
           }
 
         let id = prompt("Enter record ID");
-        
+
         fetch("http://localhost:3000/posts/" + id, headers)
         .then(response => response.json())
         .then(data => {
